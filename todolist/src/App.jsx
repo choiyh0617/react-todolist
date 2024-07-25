@@ -3,7 +3,7 @@ import { useReducer, useRef } from "react";
 import Header from './components/Header';
 import TodoEditor from './components/TodoEditor';
 import TodoList from './components/TodoList';
-import TestComp from "./components/TestComp";
+// import TestComp from "./components/TestComp";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -76,10 +76,10 @@ const App = () => {
     }
     );
   }
-  
+
   return (
     <div className="App">
-      <TestComp />
+      {/* <TestComp /> */}
       <Header />
       <TodoEditor onCreate={onCreate} />
       <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
