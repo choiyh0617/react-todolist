@@ -18,6 +18,7 @@ const TodoList = ({ todo, onUpdate, onDelete }) => {
   };
 
   const analyzeApp = () => {
+    console.log('analyzeApp')
     const totalCount = todo.length;
     const doneCount = todo.filter((it) => it.isDone).length;
     const notDoneCount = totalCount-doneCount;
