@@ -1,5 +1,5 @@
 import "./App.css";
-import { useReducer,useState, useRef } from "react";
+import { useReducer, useRef } from "react";
 import Header from './components/Header';
 import TodoEditor from './components/TodoEditor';
 import TodoList from './components/TodoList';
@@ -48,29 +48,35 @@ const App = () => {
   // const [todo, setTodo] = useState(mockTodo);
   const idRef = useRef(3);
 
-  // const onCreate = (content) => {
-  //   const newTodo = {
-  //     id: idRef.current,
-  //     content,
-  //     isDone: false,
-  //     createdDate: new Date().getTime(),
-  //   };
-  //   setTodo([newTodo, ...todo]);
-  //   idRef.current += 1;
-  // };
+  const onCreate = (content) => {
+    dispatch({
+      type: "CREATE",
+      newTodo: {
+        id: idRef.current,
+        content,
+        isDone: false,
+        createdDate: new Date().getTime(),
+      },
+    })
+    idRef.current += 1;
+  };
 
-  // const onUpdate = (targetId) => {
-  //   setTodo(
-  //     todo.map((it) =>
-  //       it.id === targetId ? { ...it, isDone: !it.isDone } : it
-  //     )
-  //   );
-  // };
+  const onUpdate = (targetId) => {
+    dispatch ({
+      type: "UPDATE",
+      targetId,
+    }
+    );
+  };
 
-  // const onDelete = (targetId) => {
-  //   setTodo(todo.filter((it) => it.id !== targetId));
-  // };
-
+  const onDelete = (targetId) => {
+    dispatch ({
+      type: "DELETE",
+      targetId,
+    }
+    );
+  }
+  
   return (
     <div className="App">
       <TestComp />
