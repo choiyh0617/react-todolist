@@ -17,9 +17,27 @@ const TodoList = ({ todo, onUpdate, onDelete }) => {
         );
   };
 
+  const analyzeApp = () => {
+    const totalCount = todo.length;
+    const doneCount = todo.filter((it) => it.isDone).length;
+    const notDoneCount = totalCount-doneCount;
+
+    return {
+      totalCount,
+      doneCount,
+      notDoneCount
+    }
+  }
+
+  const {totalCount , doneCount, notDoneCount }= analyzeApp();
   return (
     <div className="TodoList">
       <h4>Todo List 🌱</h4>
+      <div>
+        <div>총개수 : {totalCount}</div>
+        <div>완료 : {doneCount}</div>
+        <div>미완료 : {notDoneCount}</div>
+      </div>
       <input
         value={search}
         onChange={onChangeSearch}
