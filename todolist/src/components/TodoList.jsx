@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import TodoItem from './TodoItem';
 import "./TodoList.css";
+
 
 const TodoList = ({ todo, onUpdate, onDelete }) => {
   const [search, setSearch] = useState("");
@@ -17,7 +18,7 @@ const TodoList = ({ todo, onUpdate, onDelete }) => {
         );
   };
 
-  const analyzeApp = () => {
+  const analyzeApp = useMemo(() => {
     console.log('analyzeApp')
     const totalCount = todo.length;
     const doneCount = todo.filter((it) => it.isDone).length;
@@ -28,9 +29,9 @@ const TodoList = ({ todo, onUpdate, onDelete }) => {
       doneCount,
       notDoneCount
     }
-  }
+  }, [todo])
 
-  const {totalCount , doneCount, notDoneCount }= analyzeApp();
+  const {totalCount , doneCount, notDoneCount }= analyzeApp;
   return (
     <div className="TodoList">
       <h4>Todo List 🌱</h4>
