@@ -43,8 +43,9 @@ const mockTodo = [
   },
 ];
 
-const TodoStateContext = React.createContext();
-const TodoDispatchContext = React.createContext();
+
+export const TodoStateContext = React.createContext();
+export const TodoDispatchContext = React.createContext();
 
 const App = () => {
   const [todo, dispatch] = useReducer(reducer,mockTodo);
