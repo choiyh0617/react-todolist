@@ -3,7 +3,7 @@ import TodoItem from './TodoItem';
 import "./TodoList.css";
 
 
-const TodoList = ({ todo, onUpdate, onDelete }) => {
+const TodoList = ({ todo }) => {
   const [search, setSearch] = useState("");
   
   const onChangeSearch = (e) => {
@@ -51,8 +51,6 @@ const TodoList = ({ todo, onUpdate, onDelete }) => {
           <TodoItem
             key={it.id}
             {...it}
-            onUpdate={onUpdate}
-            onDelete={onDelete}
           />
         ))}
       </div>

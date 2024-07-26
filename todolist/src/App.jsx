@@ -1,5 +1,5 @@
 import "./App.css";
-import { useCallback, useReducer, useRef } from "react";
+import React,{ useCallback, useReducer, useRef } from "react";
 import Header from './components/Header';
 import TodoEditor from './components/TodoEditor';
 import TodoList from './components/TodoList';
@@ -44,6 +44,8 @@ const mockTodo = [
   },
 ];
 
+const TodoStateContext = React.createContext();
+const TodoDispatchContext = React.createContext();
 const App = () => {
   const [todo, dispatch] = useReducer(reducer,mockTodo);
   // const [todo, setTodo] = useState(mockTodo);
