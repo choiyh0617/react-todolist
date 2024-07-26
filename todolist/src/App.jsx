@@ -1,5 +1,5 @@
 import "./App.css";
-import { useReducer, useRef } from "react";
+import { useCallback, useReducer, useRef } from "react";
 import Header from './components/Header';
 import TodoEditor from './components/TodoEditor';
 import TodoList from './components/TodoList';
@@ -22,6 +22,7 @@ const reducer = (state, action) => {
         return state;
 }
 }
+
 const mockTodo = [
   {
     id: 0,
@@ -61,21 +62,19 @@ const App = () => {
     idRef.current += 1;
   };
 
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
     dispatch ({
       type: "UPDATE",
       targetId,
-    }
-    );
-  };
+    });
+  }, []);
 
-  const onDelete = (targetId) => {
+  const onDelete = useCallback((targetId) => {
     dispatch ({
       type: "DELETE",
       targetId,
-    }
-    );
-  }
+    });
+  },[])
 
   return (
     <div className="App">
