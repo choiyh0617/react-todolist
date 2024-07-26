@@ -1,10 +1,12 @@
-import { useState, useMemo } from "react";
+import { useContext,useState, useMemo } from "react";
+import {TodoStateContext} from "../App"
 import TodoItem from './TodoItem';
 import "./TodoList.css";
 
 
-const TodoList = ({ todo }) => {
+const TodoList = () => {
   const [search, setSearch] = useState("");
+  const todo = useContext(TodoStateContext);
   
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
@@ -57,4 +59,9 @@ const TodoList = ({ todo }) => {
     </div>
   );
 };
+
+TodoList.defaultProps = {
+  todo: [],
+}
+
 export default TodoList;

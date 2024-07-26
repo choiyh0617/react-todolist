@@ -27,4 +27,5 @@ const TodoItem = ({ id, content, isDone, createdDate}) => {
     </div>
   );
 };
+
 export default React.memo(TodoItem);
