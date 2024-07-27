@@ -63,5 +63,4 @@ const TodoList = () => {
 TodoList.defaultProps = {
   todo: [],
 }
-
 export default TodoList;
